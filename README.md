@@ -1,7 +1,6 @@
-# board-project
-게시판 만들기 연습 프로젝트. 자바 + 스프링부트 관련 여러 기술을 공부한다.
+# Open-Survey-Service-Backend
 
-이후 이 프로젝트를 OpenSurveyService 프로젝트로 발전시킨다.
+설문조사 서비스 백엔드 프로젝트. 자바 + 스프링부트 관련 여러 기술을 공부한다.
 
 - **Java + Spring Boot**
 - **Spring Web** : 웹서비스 기능 제공
