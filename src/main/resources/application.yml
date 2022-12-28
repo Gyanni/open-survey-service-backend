@@ -1,5 +1,5 @@
 debug: false
-management.endpoints.web.exposure.include: "*" # ¸ðµç
+management.endpoints.web.exposure.include: "*"
 
 logging:
   level:
