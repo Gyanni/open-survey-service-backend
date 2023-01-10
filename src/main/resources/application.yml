@@ -1,42 +1,48 @@
-debug: false
-management.endpoints.web.exposure.include: "*"
+debug: false # Enable debug logs
+management.endpoints.web.exposure.include: "*"# Endpoint IDs that should be included
 
+# Log levels severity mapping.
 logging:
   level:
     com.teamhw.opensurveyservice: debug
     org.springframework.web.servlet: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
 
+
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/board
+    url: jdbc:mysql://localhost:3306/board # JDBC URL of the database.
     username: gyanni
     password: thisisTESTpw!@#$
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    defer-datasource-initialization: true # 테스트용 데이터베이스를 만들 수 있음
+    defer-datasource-initialization: true # Whether to defer DataSource initialization until after any EntityManagerFactory beans have been created and initialized.
     hibernate:
-      ddl-auto: create # DDL을 자동으로 생성해줌
-    open-in-view: false
-    show-sql: true
-    properties:
+      ddl-auto: create # DDL mode
+    open-in-view: false # Register OpenEntityManagerInViewInterceptor.
+    show-sql: true # Whether to enable logging of SQL statements.
+    properties: # Additional native properties to set on the JPA provider
       hibernate.format_sql: true
       hibernate.default_batch_fetch_size: 100
     h2.console.enabled: false
+    # Mode to apply when determining whether initialization should be performed.
     sql.init.mode: always
     # thymeleaf.cache: false
     data.rest:
       base-path: /api
       detection-strategy: annotated
 
+server:
+  port: 7070
+  compression:
+    enabled: true
 ---
-# yml 파일은 '---'를 기준으로 한 페이지에 문서를 여러개 만들 수 있따.
-# 다음은 test용 db에 관한 yml 문서이다.
+
 
 spring:
   config:
     activate:
-      on-profile: testdb
+      on-profile: testdb # Profile expressions that should match for the document to be included.
   datasource:
     url: jdbc:h2:mem:board;mpde=mysql
     driver-class-name: org.h2.Driver
